@@ -37,9 +37,6 @@ Cube* create_solved_cube()
 
 int main()
 {
-    int a;
-    int b;
-    int c;
     return 0;
 }
 
