@@ -10,5 +10,12 @@ G 2 = ⟨ L2 , R2 , F2 , B2 , U , U' , U2 , D , D' , D2 ⟩ max 10 branch factor
 G 3 = ⟨ L2 , R2 , F2 , B2 , U2 , D2 ⟩ max 6 branch factor
 G 4 = { 1 }
 
+Due to the reduction of the branch factor the searches can be done much faster.
+
 Group 1 is when all the "bad edges" are gone, this means all the edges are oriented and can be brought to their proper position without doing the move F or F'/ B or B'.
 
+
+
+
+
+heuristics for lower bound of solving
