@@ -7,6 +7,19 @@ typedef struct
 }cubie;
 
 
+void update_corner_orientation(cubie* corner,int rotation)
+{
+    corner->orientation+=rotation;
+    corner->orientation%=3;
+}
+
+void update_edge_orientation(cubie* edge,int rotation)
+{
+    edge->orientation+=rotation;
+    edge->orientation%=2;
+}
+
+
 //the cube will be oriented such that white is up and green is front
 typedef struct
 {
@@ -33,6 +46,37 @@ Cube* create_solved_cube()
     return new_cube;
 }
 
+void R(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+    // shifting corners
+
+    //possible memory leak as memory is allocated but not deallocated
+    temp = &cube_state->corners[0];
+    cube_state->corners[0]=cube_state->corners[1];
+    cube_state->corners[1]=cube_state->corners[5];
+    cube_state->corners[5]=cube_state->corners[4];
+    cube_state->corners[4]=*temp;
+    free(temp);//I believe this is the solution
+
+    update_corner_orientation(&cube_state->corners[0],2);
+    update_corner_orientation(&cube_state->corners[1],1);
+    update_corner_orientation(&cube_state->corners[5],2);
+    update_corner_orientation(&cube_state->corners[4],1);
+
+    cubie* temp = malloc(sizeof(cubie));
+
+    temp = &cube_state->edges[1];
+    cube_state->edges[1]=cube_state->edges[5];
+    cube_state->edges[5]=cube_state->edges[9];
+    cube_state->edges[9]=cube_state->edges[4];
+    cube_state->edges[4]=*temp;
+}
+
+void L(Cube* cube_state)
+{
+    
+}
 
 
 int main()
