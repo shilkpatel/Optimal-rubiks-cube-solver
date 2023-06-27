@@ -99,6 +99,29 @@ void R_prime(Cube* cube_state)
     free(temp);
 }
 
+void R2(Cube* cube_state)
+{
+   cubie* temp = malloc(sizeof(cubie));
+
+    temp = &cube_state->corners[0];
+    cube_state->corners[0]=cube_state->corners[5];
+    cube_state->corners[5]=*temp;
+
+    //4,5
+    temp=&cube_state->corners[4];
+    cube_state->corners[4]=cube_state->corners[1];
+    cube_state->corners[1]=*temp;
+    
+    temp = &cube_state->edges[1];
+    cube_state->edges[1]=cube_state->edges[9];
+    cube_state->edges[9]=*temp;
+
+    temp=&cube_state->edges[4];
+    cube_state->edges[4]=cube_state->edges[5];
+    cube_state->edges[5]=*temp;
+    free(temp);
+    
+}
 
 void L(Cube* cube_state)
 {
@@ -125,7 +148,7 @@ void L(Cube* cube_state)
 
 void L_prime(Cube* cube_state)
 {
-     cubie* temp = malloc(sizeof(cubie));
+    cubie* temp = malloc(sizeof(cubie));
     temp = &cube_state->corners[3];
     cube_state->corners[3]=cube_state->corners[2];
     cube_state->corners[2]=cube_state->corners[6];
@@ -142,6 +165,27 @@ void L_prime(Cube* cube_state)
     cube_state->edges[6]=cube_state->edges[11];
     cube_state->edges[11]=cube_state->edges[7];
     cube_state->edges[7]=*temp;
+}
+
+void L2(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+    temp = &cube_state->corners[3];
+    cube_state->corners[3]=cube_state->corners[6];//36 27
+    cube_state->corners[6]=*temp;
+
+    temp = &cube_state->corners[2];
+    cube_state->corners[2]=cube_state->corners[7];
+    cube_state->corners[7]=*temp;
+
+    temp=&cube_state->edges[3];
+    cube_state->edges[3]=cube_state->edges[11];//311 67
+    cube_state->edges[11]=*temp;
+
+    temp=&cube_state->edges[6];
+    cube_state->edges[6]=cube_state->edges[7];
+    cube_state->edges[7]=*temp;
+    free(temp);
 }
 
 void F(Cube* cube_state)
@@ -202,6 +246,28 @@ void F_prime(Cube* cube_state)
 
 }
 
+void F2(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+
+    temp =&cube_state->corners[3];
+    cube_state->corners[3]=cube_state->corners[1];//31 02
+    cube_state->corners[1]=*temp;
+
+    temp=&cube_state->corners[0];
+    cube_state->corners[0]=cube_state->corners[2];
+    cube_state->corners[2]=*temp;
+
+    temp = &cube_state->edges[0];
+    cube_state->edges[0]=cube_state->edges[2];//02 13
+    cube_state->edges[2]=*temp;
+
+    temp=&cube_state->edges[1];
+    cube_state->edges[1]=cube_state->edges[3];
+    cube_state->edges[3]=*temp;
+    free(temp);
+}
+
 void B(Cube* cube_state)
 {
     cubie* temp = malloc(sizeof(cubie));
@@ -258,6 +324,28 @@ void B_prime(Cube* cube_state)
     update_edge_orientation(&cube_state->edges[11],1);
 }
 
+void B2(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+
+    temp = &cube_state->corners[4];
+    cube_state->corners[4]=cube_state->corners[6];//46 75
+    cube_state->corners[6]=*temp;
+
+    temp = &cube_state->corners[7];
+    cube_state->corners[7]=cube_state->corners[5];
+    cube_state->corners[5]=*temp;
+
+    temp = &cube_state->edges[8];
+    cube_state->edges[8]=cube_state->edges[10];//810 119
+    cube_state->edges[10]=*temp;
+
+    temp=&cube_state->edges[11];
+    cube_state->edges[11]=cube_state->edges[9];
+    cube_state->edges[9]=*temp;
+    free(temp);
+}
+
 void U(Cube* cube_state)
 {
     cubie* temp = malloc(sizeof(cubie));
@@ -296,6 +384,30 @@ void U_prime(Cube* cube_state)
     cube_state->edges[0]=cube_state->edges[7];
     cube_state->edges[7]=cube_state->edges[8];
     cube_state->edges[8]=cube_state->edges[4];
+    cube_state->edges[4]=*temp;
+    free(temp);
+}
+
+void U2(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+
+    temp = &cube_state->corners[0];
+    cube_state->corners[0]=cube_state->corners[7];//07 34
+    cube_state->corners[7]=*temp;
+
+    temp = &cube_state->corners[3];
+    cube_state->corners[3]=cube_state->corners[4];
+    cube_state->corners[4]=*temp;
+
+    // corner orientation has not changed
+
+    temp = &cube_state->edges[0];
+    cube_state->edges[0]=cube_state->edges[8];//08 74
+    cube_state->edges[8]=*temp;
+
+    temp=&cube_state->edges[7];
+    cube_state->edges[7]=cube_state->edges[4];
     cube_state->edges[4]=*temp;
     free(temp);
 }
@@ -340,6 +452,29 @@ void D_prime(Cube* cube_state)
     free(temp);
 }
 
+void D2(Cube* cube_state)
+{
+    cubie* temp = malloc(sizeof(cubie));
+
+    temp = &cube_state->corners[2];
+    cube_state->corners[2]=cube_state->corners[5];//25 16
+    cube_state->corners[5]=*temp;
+
+    temp=&cube_state->corners[1];
+    cube_state->corners[1]=cube_state->corners[6];
+    cube_state->corners[6]=*temp;
+    
+    // corners not changed
+
+    temp = &cube_state->edges[2];
+    cube_state->edges[2]=cube_state->edges[10];//210 56
+    cube_state->edges[10]=*temp;
+
+    temp=&cube_state->edges[5];
+    cube_state->edges[5]=cube_state->edges[6];
+    cube_state->edges[6]=*temp;
+    free(temp);
+}
 
 int main()
 {
