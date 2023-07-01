@@ -476,8 +476,5 @@ void D2(Cube* cube_state)
     free(temp);
 }
 
-int main()
-{
-    return 0;
-}
+
 

@@ -11,6 +11,14 @@
             "id": "1b19fc34eeaf1a52",
             "type": "leaf",
             "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "9dcf9b75d07621af",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Thistlethwaite algorithm.md",
@@ -85,7 +93,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Thistlethwaite algorithm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +109,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Thistlethwaite algorithm.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +130,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Thistlethwaite algorithm.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -151,6 +155,7 @@
   "lastOpenFiles": [
     "Thistlethwaite algorithm.md",
     "Index Piece representation.md",
+    "Symmetries and Redundancies.md",
     "Rubiks cube representation.md",
     "Bitboards.md",
     "Arrays.md",
