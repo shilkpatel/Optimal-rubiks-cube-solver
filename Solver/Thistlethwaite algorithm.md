@@ -21,9 +21,9 @@ Group 1 is when all the "bad edges" are gone, this means all the edges are orien
 Group 2 is when the all the corners have an orientation of 0, and the edges in the E slice (FR,FL,BR,BL) are moved into said slice. This cuts out L and R half turns, leaving the only moves in G2.
 
 Group 3 is when all the corners are moved into the correct "orbit"/tetrad, which means that the corners can be brought to their correct place with only 180 degree turns. The edges are in the correct slice.
-  
-  
-  
+
+[[Symmetries and Redundancies]]
+[[Rubiks cube representation]]
   
   
 

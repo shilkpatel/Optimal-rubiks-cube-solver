@@ -476,5 +476,30 @@ void D2(Cube* cube_state)
     free(temp);
 }
 
+int is_group_1(Cube* cube_state)//0-false 1-true
+{
+    for(int i=0;i<12;i++)
+    {
+        if(cube_state->edges[0].orientation==1)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
+int is_group_2(Cube* cube_state)
+{
+    for(int i=0;i<8;i++)
+    {
+        if(cube_state->corners[0].orientation==1)
+        {
+            return 0;
+        }
+    }
+
+    //edges in place
+    
+    return 1;
+}
 

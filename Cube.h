@@ -56,4 +56,8 @@ void D(Cube* cube_state);
 void D_prime(Cube* cube_state);
 
 void D2(Cube* cube_state);
+
+int is_group_1(Cube* cube_state);
+
+int is_group_2(Cube* cube_state);
 #endif
