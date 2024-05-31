@@ -16,8 +16,16 @@ def depth_benchmark(root,depth_limit):
 
 
 
-origin = CubeTree(Cube.create_solved_cube())
+origin = Cube.create_solved_cube()
 
-print("number of children: ",depth_benchmark(origin,5))
+for i in range(6):
+    origin.R()
+    origin.U()
+    origin.R_prime()
+    origin.U_prime()
+
+    origin.print_cube()
+
+
     
 

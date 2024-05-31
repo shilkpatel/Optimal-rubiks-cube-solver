@@ -14,6 +14,7 @@ class cubie():
         self.orientation += rotation
         self.orientation %= 2
 
+
 #the cube will be oriented such that white is up and green is front
 class Cube():
 
@@ -24,7 +25,192 @@ class Cube():
         #0-FUR,1-FDR,2-FDL,3-FUL,4-BUR,5-BDR,6-BDL,7-BUL
 
     def print_cube(self):
-        pass
+        #🟨🟥🟧🟦🟩⬜
+        cube_corner_colours = {0:["⬜","🟥","🟩"],
+                               1:["🟨","🟩","🟥"],
+                               2:["🟨","🟧","🟩"],
+                               3:["⬜","🟩","🟧"],
+                               4:["⬜","🟦","🟥"],
+                               5:["🟨","🟥","🟦"],
+                               6:["🟨","🟦","🟧"],
+                               7:["⬜","🟧","🟦"]}
+        cube_edge_colours = {0:["⬜","🟩"],
+                             1:["🟩","🟥"],
+                             2:["🟨","🟩"],
+                             3:["🟩","🟧"],
+                             4:["⬜","🟥"],
+                             5:["🟨","🟥"],
+                             6:["🟨","🟧"],
+                             7:["⬜","🟧"],
+                             8:["⬜","🟦"],
+                             9:["🟦","🟥"],
+                             10:["🟨","🟦"],
+                             11:["🟦","🟧"]}
+        cubestring = [[["","",""],
+                      ["","⬜",""],
+                      ["","",""]],
+
+                      [["","",""],
+                      ["","🟩",""],
+                      ["","",""]],
+
+                      [["","",""],
+                      ["","🟧",""],
+                      ["","",""]],
+
+                      [["","",""],
+                      ["","🟥",""],
+                      ["","",""]],
+
+                      [["","",""],
+                      ["","🟨",""],
+                      ["","",""]],
+
+                      [["","",""],
+                      ["","🟦",""],
+                      ["","",""]]]
+        
+        orientation = self.corners[0].orientation
+        cubestring[0][2][2]=cube_corner_colours[self.corners[0].index][(0+orientation)%3]#w #0
+        cubestring[3][0][0]=cube_corner_colours[self.corners[0].index][(1+orientation)%3]#r #1
+        cubestring[1][0][2]=cube_corner_colours[self.corners[0].index][(2+orientation)%3]#g #2
+
+        orientation = self.corners[1].orientation
+        cubestring[4][0][2]=cube_corner_colours[self.corners[1].index][(0+orientation)%3] #0
+        cubestring[1][2][2]=cube_corner_colours[self.corners[1].index][(1+orientation)%3] #1
+        cubestring[3][2][0]=cube_corner_colours[self.corners[1].index][(2+orientation)%3] #2
+        
+        orientation = self.corners[2].orientation
+        cubestring[4][0][0]=cube_corner_colours[self.corners[2].index][(0+orientation)%3]#0
+        cubestring[2][2][2]=cube_corner_colours[self.corners[2].index][(1+orientation)%3]#1
+        cubestring[1][2][0]=cube_corner_colours[self.corners[2].index][(2+orientation)%3]#2
+        
+        orientation = self.corners[3].orientation
+        cubestring[0][2][0]=cube_corner_colours[self.corners[3].index][(0+orientation)%3]#0
+        cubestring[1][0][0]=cube_corner_colours[self.corners[3].index][(1+orientation)%3]#1
+        cubestring[2][0][2]=cube_corner_colours[self.corners[3].index][(2+orientation)%3]#2
+        
+        orientation = self.corners[4].orientation
+        cubestring[0][0][2]=cube_corner_colours[self.corners[4].index][(0+orientation)%3]#0
+        cubestring[5][2][2]=cube_corner_colours[self.corners[4].index][(1+orientation)%3]#1
+        cubestring[3][0][2]=cube_corner_colours[self.corners[4].index][(2+orientation)%3]#2
+        
+        
+        orientation = self.corners[5].orientation
+        cubestring[4][2][2]=cube_corner_colours[self.corners[5].index][(0+orientation)%3]#0
+        cubestring[3][2][2]=cube_corner_colours[self.corners[5].index][(1+orientation)%3]#1
+        cubestring[5][0][2]=cube_corner_colours[self.corners[5].index][(2+orientation)%3]#2
+        
+        # 0-FUR,1-FDR,2-FDL,3-FUL,4-BUR,5-BDR,6-BDL,7-BUL
+        
+        orientation = self.corners[6].orientation
+        cubestring[4][2][0]=cube_corner_colours[self.corners[6].index][(0+orientation)%3]#0
+        cubestring[5][0][0]=cube_corner_colours[self.corners[6].index][(1+orientation)%3]#1
+        cubestring[2][2][0]=cube_corner_colours[self.corners[6].index][(2+orientation)%3]#2
+        
+        orientation = self.corners[7].orientation
+        cubestring[0][0][0]=cube_corner_colours[self.corners[7].index][(0+orientation)%3]#0
+        cubestring[2][0][0]=cube_corner_colours[self.corners[7].index][(1+orientation)%3]#1
+        cubestring[5][2][0]=cube_corner_colours[self.corners[7].index][(2+orientation)%3]#2
+
+        #0-FU,1-FR,2-FD,3-FL,4-UR,5-DR,6-DL,7-UL,8-BU,9-BR,10-BD,11-BL
+
+        orientation = self.edges[0].orientation
+        cubestring[0][2][1] = cube_edge_colours[self.edges[0].index][(0+orientation)%2]#0
+        cubestring[1][0][1] = cube_edge_colours[self.edges[0].index][(1+orientation)%2]#1
+
+        orientation = self.edges[1].orientation
+        cubestring[1][1][2] = cube_edge_colours[self.edges[1].index][(0+orientation)%2]#0
+        cubestring[3][1][0] = cube_edge_colours[self.edges[1].index][(1+orientation)%2]#1
+
+        orientation = self.edges[2].orientation
+        cubestring[4][0][1] = cube_edge_colours[self.edges[2].index][(0+orientation)%2]#0
+        cubestring[1][2][1] = cube_edge_colours[self.edges[2].index][(1+orientation)%2]#1
+
+        orientation = self.edges[3].orientation
+        cubestring[1][1][0] = cube_edge_colours[self.edges[3].index][(0+orientation)%2]#0
+        cubestring[2][1][2] = cube_edge_colours[self.edges[3].index][(1+orientation)%2]#1
+
+        orientation = self.edges[4].orientation
+        cubestring[0][1][2] = cube_edge_colours[self.edges[4].index][(0+orientation)%2]#0
+        cubestring[3][0][1] = cube_edge_colours[self.edges[4].index][(1+orientation)%2]#1
+
+        orientation = self.edges[5].orientation
+        cubestring[4][1][2] = cube_edge_colours[self.edges[5].index][(0+orientation)%2]#0
+        cubestring[3][2][1] = cube_edge_colours[self.edges[5].index][(1+orientation)%2]#1
+
+        #0-FU,1-FR,2-FD,3-FL,4-UR,5-DR,6-DL,7-UL,8-BU,9-BR,10-BD,11-BL
+
+        orientation = self.edges[6].orientation
+        cubestring[4][1][0] = cube_edge_colours[self.edges[6].index][(0+orientation)%2]#0
+        cubestring[2][2][1] = cube_edge_colours[self.edges[6].index][(1+orientation)%2]#1
+
+        orientation = self.edges[7].orientation
+        cubestring[0][1][0] = cube_edge_colours[self.edges[7].index][(0+orientation)%2]#0
+        cubestring[2][0][1] = cube_edge_colours[self.edges[7].index][(1+orientation)%2]#1
+
+        orientation = self.edges[8].orientation
+        cubestring[0][0][1] = cube_edge_colours[self.edges[8].index][(0+orientation)%2]#0
+        cubestring[5][2][1] = cube_edge_colours[self.edges[8].index][(1+orientation)%2]#1
+
+        orientation = self.edges[9].orientation
+        cubestring[5][1][2] = cube_edge_colours[self.edges[9].index][(0+orientation)%2]#0
+        cubestring[3][1][2] = cube_edge_colours[self.edges[9].index][(1+orientation)%2]#1
+
+        orientation = self.edges[10].orientation
+        cubestring[4][2][1] = cube_edge_colours[self.edges[10].index][(0+orientation)%2]#0
+        cubestring[5][0][1] = cube_edge_colours[self.edges[10].index][(1+orientation)%2]#1
+
+        orientation = self.edges[11].orientation
+        cubestring[5][1][0] = cube_edge_colours[self.edges[11].index][(0+orientation)%2]#0
+        cubestring[2][1][0] = cube_edge_colours[self.edges[11].index][(1+orientation)%2]#1
+
+        for i in cubestring[0]:
+            print("                  "+str(i))
+
+        #print(cubestring[2]+cubestring[1]+cubestring[3])
+        for i in range(3):
+            print(cubestring[2][i]+cubestring[1][i]+cubestring[3][i])
+
+      
+        for i in cubestring[4]:
+            print("                  "+str(i))
+
+      
+        for i in cubestring[5]:
+            print("                  "+str(i))
+
+        
+
+        
+        
+
+
+
+        #w1 - c7 e8 c4
+        #w2 - e7 w  e4
+        #w3 - c3 e0 c0
+
+        #g1 - c3 e0 c0
+        #g2 - e3 g  e1
+        #g3 - c2 e2 c1
+
+        #o1 - c7 e7 c3
+        #o2 - e11 o e3
+        #o3 - c6 e6 c2
+
+        #r1 - c0 e4 c4
+        #r2 - e1 r  e9
+        #r3 - c1 e5 c5
+
+        #y1 - c2 e2 c1
+        #y2 - e6 y  e5
+        #y3 - c6 e10 c5
+
+        #b1 - c6 e2 c1
+        #b2 - e11 b e9
+        #b3 - c7 e8 c4
+
 
     def create_solved_cube():
     
@@ -49,19 +235,20 @@ class Cube():
 
         temp = cubie(-1,-1)
         ## shifting corners
+        # 0-FUR,1-FDR,2-FDL,3-FUL,4-BUR,5-BDR,6-BDL,7-BUL
 
         ## possible memory leak as memory is allocated but not deallocated
         temp = self.corners[0]
         new_cube.corners[0] = self.corners[1]
         new_cube.corners[1] = self.corners[5]
         new_cube.corners[5] = self.corners[4]
-        new_cube.corners[4] = temp ## Because we use the dereference operator
+        new_cube.corners[4] = temp 
         ## I believe this is the solution
 
-        new_cube.corners[0].update_corner_orientation(2)
-        new_cube.corners[1].update_corner_orientation(1)
-        new_cube.corners[5].update_corner_orientation(2)
-        new_cube.corners[4].update_corner_orientation(1)
+        new_cube.corners[0].update_corner_orientation(1)
+        new_cube.corners[1].update_corner_orientation(2)
+        new_cube.corners[5].update_corner_orientation(1)
+        new_cube.corners[4].update_corner_orientation(2)
 
         temp = cubie(-1,-1)
 
@@ -88,10 +275,10 @@ class Cube():
         new_cube.corners[5] = self.corners[1]
         new_cube.corners[1] = temp
 
-        new_cube.corners[0].update_corner_orientation(2)
-        new_cube.corners[1].update_corner_orientation(1)
-        new_cube.corners[5].update_corner_orientation(2)
-        new_cube.corners[4].update_corner_orientation(1)
+        new_cube.corners[0].update_corner_orientation(1)
+        new_cube.corners[1].update_corner_orientation(2)
+        new_cube.corners[5].update_corner_orientation(1)
+        new_cube.corners[4].update_corner_orientation(2)
 
         temp = self.edges[1]
         new_cube.edges[1] = self.edges[4]
@@ -139,10 +326,10 @@ class Cube():
         new_cube.corners[6] = self.corners[2]
         new_cube.corners[2] = temp
 
-        new_cube.corners[3].update_corner_orientation(1)
-        new_cube.corners[7].update_corner_orientation(2)
-        new_cube.corners[6].update_corner_orientation(1)
-        new_cube.corners[2].update_corner_orientation(2)
+        new_cube.corners[3].update_corner_orientation(2)
+        new_cube.corners[7].update_corner_orientation(1)
+        new_cube.corners[6].update_corner_orientation(2)
+        new_cube.corners[2].update_corner_orientation(1)
 
         temp = self.edges[3]
         new_cube.edges[3] = self.edges[7]
@@ -164,10 +351,10 @@ class Cube():
         new_cube.corners[6] = self.corners[7]
         new_cube.corners[7] = temp
 
-        new_cube.corners[3].update_corner_orientation(1)
-        new_cube.corners[7].update_corner_orientation(2)
-        new_cube.corners[6].update_corner_orientation(1)
-        new_cube.corners[2].update_corner_orientation(2)
+        new_cube.corners[3].update_corner_orientation(2)
+        new_cube.corners[7].update_corner_orientation(1)
+        new_cube.corners[6].update_corner_orientation(2)
+        new_cube.corners[2].update_corner_orientation(1)
 
         temp = self.edges[3]
         new_cube.edges[3] = self.edges[6]
@@ -215,10 +402,10 @@ class Cube():
         new_cube.corners[1] = self.corners[0]
         new_cube.corners[0] = temp
 
-        new_cube.corners[3].update_corner_orientation(2)
-        new_cube.corners[2].update_corner_orientation(1)
-        new_cube.corners[1].update_corner_orientation(2)
-        new_cube.corners[0].update_corner_orientation(1)
+        new_cube.corners[3].update_corner_orientation(1)
+        new_cube.corners[2].update_corner_orientation(2)
+        new_cube.corners[1].update_corner_orientation(1)
+        new_cube.corners[0].update_corner_orientation(2)
 
         temp = self.edges[0]
         new_cube.edges[0] = self.edges[3]
@@ -245,10 +432,10 @@ class Cube():
         new_cube.corners[1] = self.corners[2]
         new_cube.corners[2] = temp
 
-        new_cube.corners[3].update_corner_orientation(2)
-        new_cube.corners[2].update_corner_orientation(1)
-        new_cube.corners[1].update_corner_orientation(2)
-        new_cube.corners[0].update_corner_orientation(1)
+        new_cube.corners[3].update_corner_orientation(1)
+        new_cube.corners[2].update_corner_orientation(2)
+        new_cube.corners[1].update_corner_orientation(1)
+        new_cube.corners[0].update_corner_orientation(2)
 
         temp = self.edges[0]
         new_cube.edges[0] = self.edges[1]
@@ -301,10 +488,10 @@ class Cube():
         new_cube.corners[6] = self.corners[7]
         new_cube.corners[7] = temp
 
-        new_cube.corners[4].update_corner_orientation(2)
-        new_cube.corners[5].update_corner_orientation(1)
-        new_cube.corners[6].update_corner_orientation(2)
-        new_cube.corners[7].update_corner_orientation(1)
+        new_cube.corners[4].update_corner_orientation(1)
+        new_cube.corners[5].update_corner_orientation(2)
+        new_cube.corners[6].update_corner_orientation(1)
+        new_cube.corners[7].update_corner_orientation(2)
 
         temp = self.edges[8]
         new_cube.edges[8] = self.edges[9]
@@ -332,10 +519,10 @@ class Cube():
         new_cube.corners[6] = self.corners[5]
         new_cube.corners[5] = temp
 
-        new_cube.corners[4].update_corner_orientation(2)
-        new_cube.corners[5].update_corner_orientation(1)
-        new_cube.corners[6].update_corner_orientation(2)
-        new_cube.corners[7].update_corner_orientation(1)
+        new_cube.corners[4].update_corner_orientation(1)
+        new_cube.corners[5].update_corner_orientation(2)
+        new_cube.corners[6].update_corner_orientation(1)
+        new_cube.corners[7].update_corner_orientation(2)
 
         temp = self.edges[8]
         new_cube.edges[8] = self.edges[11]

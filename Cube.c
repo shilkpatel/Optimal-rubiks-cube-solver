@@ -33,7 +33,7 @@ Cube *create_solved_cube()
     for (int i = 0; i < 12; i++)
     {
         new_cube->edges[i].index = i;
-        new_cube->edges[i].index = 0;
+        new_cube->edges[i].index = 0;// should be orientation
     }
 
     for (int i = 0; i < 8; i++)
@@ -55,7 +55,7 @@ void R(Cube *cube_state)
     cube_state->corners[1] = cube_state->corners[5];
     cube_state->corners[5] = cube_state->corners[4];
     cube_state->corners[4] = *temp; // Because we use the dereference operator
-    free(temp);                     // I believe this is the solution
+    ;                     // I believe this is the solution
 
     update_corner_orientation(&cube_state->corners[0], 2);
     update_corner_orientation(&cube_state->corners[1], 1);
@@ -69,7 +69,7 @@ void R(Cube *cube_state)
     cube_state->edges[5] = cube_state->edges[9];
     cube_state->edges[9] = cube_state->edges[4];
     cube_state->edges[4] = *temp;
-    free(temp);
+    ;
 }
 
 void R_prime(Cube *cube_state)
@@ -94,7 +94,7 @@ void R_prime(Cube *cube_state)
     cube_state->edges[4] = cube_state->edges[9];
     cube_state->edges[9] = cube_state->edges[5];
     cube_state->edges[5] = *temp;
-    free(temp);
+    ;
 }
 
 void R2(Cube *cube_state)
@@ -117,7 +117,7 @@ void R2(Cube *cube_state)
     temp = &cube_state->edges[4];
     cube_state->edges[4] = cube_state->edges[5];
     cube_state->edges[5] = *temp;
-    free(temp);
+    ;
 }
 
 void L(Cube *cube_state)
@@ -139,7 +139,7 @@ void L(Cube *cube_state)
     cube_state->edges[7] = cube_state->edges[11];
     cube_state->edges[11] = cube_state->edges[6];
     cube_state->edges[6] = *temp;
-    free(temp);
+    ;
 }
 
 void L_prime(Cube *cube_state)
@@ -181,7 +181,7 @@ void L2(Cube *cube_state)
     temp = &cube_state->edges[6];
     cube_state->edges[6] = cube_state->edges[7];
     cube_state->edges[7] = *temp;
-    free(temp);
+    ;
 }
 
 void F(Cube *cube_state)
@@ -204,7 +204,7 @@ void F(Cube *cube_state)
     cube_state->edges[3] = cube_state->edges[2];
     cube_state->edges[2] = cube_state->edges[1];
     cube_state->edges[1] = *temp;
-    free(temp);
+    ;
 
     update_edge_orientation(&cube_state->edges[0], 1);
     update_edge_orientation(&cube_state->edges[3], 1);
@@ -232,7 +232,7 @@ void F_prime(Cube *cube_state)
     cube_state->edges[1] = cube_state->edges[2];
     cube_state->edges[2] = cube_state->edges[3];
     cube_state->edges[3] = *temp;
-    free(temp);
+    ;
 
     update_edge_orientation(&cube_state->edges[0], 1);
     update_edge_orientation(&cube_state->edges[3], 1);
@@ -259,7 +259,7 @@ void F2(Cube *cube_state)
     temp = &cube_state->edges[1];
     cube_state->edges[1] = cube_state->edges[3];
     cube_state->edges[3] = *temp;
-    free(temp);
+    ;
 }
 
 void B(Cube *cube_state)
@@ -282,7 +282,7 @@ void B(Cube *cube_state)
     cube_state->edges[9] = cube_state->edges[10];
     cube_state->edges[10] = cube_state->edges[11];
     cube_state->edges[11] = *temp;
-    free(temp);
+    ;
 
     update_edge_orientation(&cube_state->edges[8], 1);
     update_edge_orientation(&cube_state->edges[9], 1);
@@ -310,7 +310,7 @@ void B_prime(Cube *cube_state)
     cube_state->edges[11] = cube_state->edges[10];
     cube_state->edges[10] = cube_state->edges[9];
     cube_state->edges[9] = *temp;
-    free(temp);
+    ;
 
     update_edge_orientation(&cube_state->edges[8], 1);
     update_edge_orientation(&cube_state->edges[9], 1);
@@ -337,7 +337,7 @@ void B2(Cube *cube_state)
     temp = &cube_state->edges[11];
     cube_state->edges[11] = cube_state->edges[9];
     cube_state->edges[9] = *temp;
-    free(temp);
+    ;
 }
 
 void U(Cube *cube_state)
@@ -357,7 +357,7 @@ void U(Cube *cube_state)
     cube_state->edges[4] = cube_state->edges[8];
     cube_state->edges[8] = cube_state->edges[7];
     cube_state->edges[7] = *temp;
-    free(temp);
+    ;
 
     // edges are still orientated
 }
@@ -379,7 +379,7 @@ void U_prime(Cube *cube_state)
     cube_state->edges[7] = cube_state->edges[8];
     cube_state->edges[8] = cube_state->edges[4];
     cube_state->edges[4] = *temp;
-    free(temp);
+    ;
 }
 
 void U2(Cube *cube_state)
@@ -403,7 +403,7 @@ void U2(Cube *cube_state)
     temp = &cube_state->edges[7];
     cube_state->edges[7] = cube_state->edges[4];
     cube_state->edges[4] = *temp;
-    free(temp);
+    ;
 }
 
 void D(Cube *cube_state)
@@ -423,7 +423,7 @@ void D(Cube *cube_state)
     cube_state->edges[6] = cube_state->edges[10];
     cube_state->edges[10] = cube_state->edges[5];
     cube_state->edges[5] = *temp;
-    free(temp);
+    ;
 }
 
 void D_prime(Cube *cube_state)
@@ -443,7 +443,7 @@ void D_prime(Cube *cube_state)
     cube_state->edges[5] = cube_state->edges[10];
     cube_state->edges[10] = cube_state->edges[6];
     cube_state->edges[6] = *temp;
-    free(temp);
+    ;
 }
 
 void D2(Cube *cube_state)
@@ -467,7 +467,7 @@ void D2(Cube *cube_state)
     temp = &cube_state->edges[5];
     cube_state->edges[5] = cube_state->edges[6];
     cube_state->edges[6] = *temp;
-    free(temp);
+    ;
 }
 
 int is_group_1(Cube *cube_state) // 0-false 1-true
