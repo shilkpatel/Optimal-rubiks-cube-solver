@@ -180,13 +180,6 @@ class Cube():
         for i in cubestring[5]:
             print("                  "+str(i))
 
-        
-
-        
-        
-
-
-
         #w1 - c7 e8 c4
         #w2 - e7 w  e4
         #w3 - c3 e0 c0
@@ -211,7 +204,6 @@ class Cube():
         #b2 - e11 b e9
         #b3 - c7 e8 c4
 
-
     def create_solved_cube():
     
         new_cube = Cube()
@@ -227,21 +219,21 @@ class Cube():
 
         return new_cube
 
-    def R(self):
+    def R(state):
 
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
         ## shifting corners
         # 0-FUR,1-FDR,2-FDL,3-FUL,4-BUR,5-BDR,6-BDL,7-BUL
 
         ## possible memory leak as memory is allocated but not deallocated
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[1]
-        new_cube.corners[1] = self.corners[5]
-        new_cube.corners[5] = self.corners[4]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[1]
+        new_cube.corners[1] = state.corners[5]
+        new_cube.corners[5] = state.corners[4]
         new_cube.corners[4] = temp 
         ## I believe this is the solution
 
@@ -252,27 +244,27 @@ class Cube():
 
         temp = cubie(-1,-1)
 
-        temp = self.edges[1]
-        new_cube.edges[1] = self.edges[5]
-        new_cube.edges[5] = self.edges[9]
-        new_cube.edges[9] = self.edges[4]
+        temp = state.edges[1]
+        new_cube.edges[1] = state.edges[5]
+        new_cube.edges[5] = state.edges[9]
+        new_cube.edges[9] = state.edges[4]
         new_cube.edges[4] = temp
 
         return new_cube
         
-    def R_prime(self):
+    def R_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
         ## shifting corners
 
         ## possible memory leak as memory is allocated but not deallocated
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[4]
-        new_cube.corners[4] = self.corners[5]
-        new_cube.corners[5] = self.corners[1]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[4]
+        new_cube.corners[4] = state.corners[5]
+        new_cube.corners[5] = state.corners[1]
         new_cube.corners[1] = temp
 
         new_cube.corners[0].update_corner_orientation(1)
@@ -280,50 +272,50 @@ class Cube():
         new_cube.corners[5].update_corner_orientation(1)
         new_cube.corners[4].update_corner_orientation(2)
 
-        temp = self.edges[1]
-        new_cube.edges[1] = self.edges[4]
-        new_cube.edges[4] = self.edges[9]
-        new_cube.edges[9] = self.edges[5]
+        temp = state.edges[1]
+        new_cube.edges[1] = state.edges[4]
+        new_cube.edges[4] = state.edges[9]
+        new_cube.edges[9] = state.edges[5]
         new_cube.edges[5] = temp
 
         return new_cube
 
-    def R2(self):
+    def R2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[5]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[5]
         new_cube.corners[5] = temp
         # 4,5
-        temp = self.corners[4]
-        new_cube.corners[4] = self.corners[1]
+        temp = state.corners[4]
+        new_cube.corners[4] = state.corners[1]
         new_cube.corners[1] = temp
 
-        temp = self.edges[1]
-        new_cube.edges[1] = self.edges[9]
+        temp = state.edges[1]
+        new_cube.edges[1] = state.edges[9]
         new_cube.edges[9] = temp
 
-        temp = self.edges[4]
-        new_cube.edges[4] = self.edges[5]
+        temp = state.edges[4]
+        new_cube.edges[4] = state.edges[5]
         new_cube.edges[5] = temp
 
         return new_cube
     
-    def L(self):
+    def L(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[7]
-        new_cube.corners[7] = self.corners[6]
-        new_cube.corners[6] = self.corners[2]
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[7]
+        new_cube.corners[7] = state.corners[6]
+        new_cube.corners[6] = state.corners[2]
         new_cube.corners[2] = temp
 
         new_cube.corners[3].update_corner_orientation(2)
@@ -331,24 +323,24 @@ class Cube():
         new_cube.corners[6].update_corner_orientation(2)
         new_cube.corners[2].update_corner_orientation(1)
 
-        temp = self.edges[3]
-        new_cube.edges[3] = self.edges[7]
-        new_cube.edges[7] = self.edges[11]
-        new_cube.edges[11] = self.edges[6]
+        temp = state.edges[3]
+        new_cube.edges[3] = state.edges[7]
+        new_cube.edges[7] = state.edges[11]
+        new_cube.edges[11] = state.edges[6]
         new_cube.edges[6] = temp
 
         return new_cube
     
-    def L_prime(self):
+    def L_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[2]
-        new_cube.corners[2] = self.corners[6]
-        new_cube.corners[6] = self.corners[7]
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[2]
+        new_cube.corners[2] = state.corners[6]
+        new_cube.corners[6] = state.corners[7]
         new_cube.corners[7] = temp
 
         new_cube.corners[3].update_corner_orientation(2)
@@ -356,50 +348,50 @@ class Cube():
         new_cube.corners[6].update_corner_orientation(2)
         new_cube.corners[2].update_corner_orientation(1)
 
-        temp = self.edges[3]
-        new_cube.edges[3] = self.edges[6]
-        new_cube.edges[6] = self.edges[11]
-        new_cube.edges[11] = self.edges[7]
+        temp = state.edges[3]
+        new_cube.edges[3] = state.edges[6]
+        new_cube.edges[6] = state.edges[11]
+        new_cube.edges[11] = state.edges[7]
         new_cube.edges[7] = temp
 
         return new_cube
 
-    def L2(self):
+    def L2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[6] # 36 27
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[6] # 36 27
         new_cube.corners[6] = temp
 
-        temp = self.corners[2]
-        new_cube.corners[2] = self.corners[7]
+        temp = state.corners[2]
+        new_cube.corners[2] = state.corners[7]
         new_cube.corners[7] = temp
 
-        temp = self.edges[3]
-        new_cube.edges[3] = self.edges[11] # 311 67
+        temp = state.edges[3]
+        new_cube.edges[3] = state.edges[11] # 311 67
         new_cube.edges[11] = temp
 
-        temp = self.edges[6]
-        new_cube.edges[6] = self.edges[7]
+        temp = state.edges[6]
+        new_cube.edges[6] = state.edges[7]
         new_cube.edges[7] = temp
 
         return new_cube
     
-    def F(self):
+    def F(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[2]
-        new_cube.corners[2] = self.corners[1]
-        new_cube.corners[1] = self.corners[0]
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[2]
+        new_cube.corners[2] = state.corners[1]
+        new_cube.corners[1] = state.corners[0]
         new_cube.corners[0] = temp
 
         new_cube.corners[3].update_corner_orientation(1)
@@ -407,10 +399,10 @@ class Cube():
         new_cube.corners[1].update_corner_orientation(1)
         new_cube.corners[0].update_corner_orientation(2)
 
-        temp = self.edges[0]
-        new_cube.edges[0] = self.edges[3]
-        new_cube.edges[3] = self.edges[2]
-        new_cube.edges[2] = self.edges[1]
+        temp = state.edges[0]
+        new_cube.edges[0] = state.edges[3]
+        new_cube.edges[3] = state.edges[2]
+        new_cube.edges[2] = state.edges[1]
         new_cube.edges[1] = temp
 
         new_cube.edges[0].update_edge_orientation(1)
@@ -420,16 +412,16 @@ class Cube():
 
         return new_cube
 
-    def F_prime(self):
+    def F_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
         temp = cubie(-1,-1)
 
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[0]
-        new_cube.corners[0] = self.corners[1]
-        new_cube.corners[1] = self.corners[2]
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[0]
+        new_cube.corners[0] = state.corners[1]
+        new_cube.corners[1] = state.corners[2]
         new_cube.corners[2] = temp
 
         new_cube.corners[3].update_corner_orientation(1)
@@ -437,10 +429,10 @@ class Cube():
         new_cube.corners[1].update_corner_orientation(1)
         new_cube.corners[0].update_corner_orientation(2)
 
-        temp = self.edges[0]
-        new_cube.edges[0] = self.edges[1]
-        new_cube.edges[1] = self.edges[2]
-        new_cube.edges[2] = self.edges[3]
+        temp = state.edges[0]
+        new_cube.edges[0] = state.edges[1]
+        new_cube.edges[1] = state.edges[2]
+        new_cube.edges[2] = state.edges[3]
         new_cube.edges[3] = temp
         
         new_cube.edges[0].update_edge_orientation(1)
@@ -450,42 +442,42 @@ class Cube():
 
         return new_cube
 
-    def F2(self):
+    def F2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[3]
-        new_cube.corners[3] = self.corners[1] # 31 02
+        temp = state.corners[3]
+        new_cube.corners[3] = state.corners[1] # 31 02
         new_cube.corners[1] = temp
 
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[2]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[2]
         new_cube.corners[2] = temp
 
-        temp = self.edges[0]
-        new_cube.edges[0] = self.edges[2] # 02 13
+        temp = state.edges[0]
+        new_cube.edges[0] = state.edges[2] # 02 13
         new_cube.edges[2] = temp
 
-        temp = self.edges[1]
-        new_cube.edges[1] = self.edges[3]
+        temp = state.edges[1]
+        new_cube.edges[1] = state.edges[3]
         new_cube.edges[3] = temp
 
         return new_cube
         
-    def B(self):
+    def B(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[4]
-        new_cube.corners[4] = self.corners[5]
-        new_cube.corners[5] = self.corners[6]
-        new_cube.corners[6] = self.corners[7]
+        temp = state.corners[4]
+        new_cube.corners[4] = state.corners[5]
+        new_cube.corners[5] = state.corners[6]
+        new_cube.corners[6] = state.corners[7]
         new_cube.corners[7] = temp
 
         new_cube.corners[4].update_corner_orientation(1)
@@ -493,10 +485,10 @@ class Cube():
         new_cube.corners[6].update_corner_orientation(1)
         new_cube.corners[7].update_corner_orientation(2)
 
-        temp = self.edges[8]
-        new_cube.edges[8] = self.edges[9]
-        new_cube.edges[9] = self.edges[10]
-        new_cube.edges[10] = self.edges[11]
+        temp = state.edges[8]
+        new_cube.edges[8] = state.edges[9]
+        new_cube.edges[9] = state.edges[10]
+        new_cube.edges[10] = state.edges[11]
         new_cube.edges[11] = temp
         
 
@@ -507,16 +499,16 @@ class Cube():
 
         return new_cube
 
-    def B_prime(self):
+    def B_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
         temp = cubie(-1,-1)
 
-        temp = self.corners[4]
-        new_cube.corners[4] = self.corners[7]
-        new_cube.corners[7] = self.corners[6]
-        new_cube.corners[6] = self.corners[5]
+        temp = state.corners[4]
+        new_cube.corners[4] = state.corners[7]
+        new_cube.corners[7] = state.corners[6]
+        new_cube.corners[6] = state.corners[5]
         new_cube.corners[5] = temp
 
         new_cube.corners[4].update_corner_orientation(1)
@@ -524,10 +516,10 @@ class Cube():
         new_cube.corners[6].update_corner_orientation(1)
         new_cube.corners[7].update_corner_orientation(2)
 
-        temp = self.edges[8]
-        new_cube.edges[8] = self.edges[11]
-        new_cube.edges[11] = self.edges[10]
-        new_cube.edges[10] = self.edges[9]
+        temp = state.edges[8]
+        new_cube.edges[8] = state.edges[11]
+        new_cube.edges[11] = state.edges[10]
+        new_cube.edges[10] = state.edges[9]
         new_cube.edges[9] = temp
         
 
@@ -538,260 +530,260 @@ class Cube():
 
         return new_cube
 
-    def B2(self):
+    def B2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
         temp = cubie(-1,-1)
 
-        temp = self.corners[4]
-        new_cube.corners[4] = self.corners[6] # 46 75
+        temp = state.corners[4]
+        new_cube.corners[4] = state.corners[6] # 46 75
         new_cube.corners[6] = temp
 
-        temp = self.corners[7]
-        new_cube.corners[7] = self.corners[5]
+        temp = state.corners[7]
+        new_cube.corners[7] = state.corners[5]
         new_cube.corners[5] = temp
 
-        temp = self.edges[8]
-        new_cube.edges[8] = self.edges[10] # 810 119
+        temp = state.edges[8]
+        new_cube.edges[8] = state.edges[10] # 810 119
         new_cube.edges[10] = temp
 
-        temp = self.edges[11]
-        new_cube.edges[11] = self.edges[9]
+        temp = state.edges[11]
+        new_cube.edges[11] = state.edges[9]
         new_cube.edges[9] = temp
 
         return new_cube
         
-    def U(self):
+    def U(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[4]
-        new_cube.corners[4] = self.corners[7]
-        new_cube.corners[7] = self.corners[3]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[4]
+        new_cube.corners[4] = state.corners[7]
+        new_cube.corners[7] = state.corners[3]
         new_cube.corners[3] = temp
 
         # corner orientation has not changed
 
-        temp = self.edges[0]
-        new_cube.edges[0] = self.edges[4]
-        new_cube.edges[4] = self.edges[8]
-        new_cube.edges[8] = self.edges[7]
+        temp = state.edges[0]
+        new_cube.edges[0] = state.edges[4]
+        new_cube.edges[4] = state.edges[8]
+        new_cube.edges[8] = state.edges[7]
         new_cube.edges[7] = temp
 
         return new_cube
     
         # edges are still orientated
 
-    def U_prime(self):
+    def U_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[3]
-        new_cube.corners[3] = self.corners[7]
-        new_cube.corners[7] = self.corners[4]
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[3]
+        new_cube.corners[3] = state.corners[7]
+        new_cube.corners[7] = state.corners[4]
         new_cube.corners[4] = temp
 
         # corner orientation has not changed
 
-        temp = self.edges[0]
-        new_cube.edges[0] = self.edges[7]
-        new_cube.edges[7] = self.edges[8]
-        new_cube.edges[8] = self.edges[4]
+        temp = state.edges[0]
+        new_cube.edges[0] = state.edges[7]
+        new_cube.edges[7] = state.edges[8]
+        new_cube.edges[8] = state.edges[4]
         new_cube.edges[4] = temp
 
         return new_cube
         
-    def U2(self):
+    def U2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[0]
-        new_cube.corners[0] = self.corners[7]# 07 34
+        temp = state.corners[0]
+        new_cube.corners[0] = state.corners[7]# 07 34
         new_cube.corners[7] = temp
 
-        temp = self.corners[3]
-        self.corners[3] = self.corners[4]
-        self.corners[4] = temp
+        temp = state.corners[3]
+        state.corners[3] = state.corners[4]
+        state.corners[4] = temp
 
         # corner orientation has not changed
 
-        temp = self.edges[0]
-        self.edges[0] = self.edges[8] # 08 74
-        self.edges[8] = temp
+        temp = state.edges[0]
+        state.edges[0] = state.edges[8] # 08 74
+        state.edges[8] = temp
 
-        temp = self.edges[7]
-        new_cube.edges[7] = self.edges[4]
+        temp = state.edges[7]
+        new_cube.edges[7] = state.edges[4]
         new_cube.edges[4] = temp
 
         return new_cube
         
-    def D(self):
+    def D(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[2]
-        new_cube.corners[2] = self.corners[6]
-        new_cube.corners[6] = self.corners[5]
-        new_cube.corners[5] = self.corners[1]
+        temp = state.corners[2]
+        new_cube.corners[2] = state.corners[6]
+        new_cube.corners[6] = state.corners[5]
+        new_cube.corners[5] = state.corners[1]
         new_cube.corners[1] = temp
 
         # corners not changed
 
-        temp = self.edges[2]
-        new_cube.edges[2] = self.edges[6]
-        new_cube.edges[6] = self.edges[10]
-        new_cube.edges[10] = self.edges[5]
+        temp = state.edges[2]
+        new_cube.edges[2] = state.edges[6]
+        new_cube.edges[6] = state.edges[10]
+        new_cube.edges[10] = state.edges[5]
         new_cube.edges[5] = temp
 
         return new_cube
         
-    def D_prime(self):
+    def D_prime(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[2]
-        new_cube.corners[2] = self.corners[1]
-        new_cube.corners[1] = self.corners[5]
-        new_cube.corners[5] = self.corners[6]
+        temp = state.corners[2]
+        new_cube.corners[2] = state.corners[1]
+        new_cube.corners[1] = state.corners[5]
+        new_cube.corners[5] = state.corners[6]
         new_cube.corners[6] = temp
 
         # corners not changed
 
-        temp = self.edges[2]
-        new_cube.edges[2] = self.edges[5]
-        new_cube.edges[5] = self.edges[10]
-        new_cube.edges[10] = self.edges[6]
+        temp = state.edges[2]
+        new_cube.edges[2] = state.edges[5]
+        new_cube.edges[5] = state.edges[10]
+        new_cube.edges[10] = state.edges[6]
         new_cube.edges[6] = temp
 
         return new_cube
         
-    def D2(self):
+    def D2(state):
         new_cube = Cube()
-        new_cube.edges = self.edges
-        new_cube.corners = self.corners
+        new_cube.edges = state.edges
+        new_cube.corners = state.corners
 
         temp = cubie(-1,-1)
 
-        temp = self.corners[2]
-        new_cube.corners[2] = self.corners[5] # 25 16
+        temp = state.corners[2]
+        new_cube.corners[2] = state.corners[5] # 25 16
         new_cube.corners[5] = temp
 
-        temp = self.corners[1]
-        new_cube.corners[1] = self.corners[6]
+        temp = state.corners[1]
+        new_cube.corners[1] = state.corners[6]
         new_cube.corners[6] = temp
 
         # corners not changed
 
-        temp = self.edges[2]
-        new_cube.edges[2] = self.edges[10] # 210 56
+        temp = state.edges[2]
+        new_cube.edges[2] = state.edges[10] # 210 56
         new_cube.edges[10] = temp
 
-        temp = self.edges[5]
-        new_cube.edges[5] = self.edges[6]
+        temp = state.edges[5]
+        new_cube.edges[5] = state.edges[6]
         new_cube.edges[6] = temp
 
         return new_cube
 
-    def is_group_1(self): # 0-false 1-true
+    def is_group_1(state): # 0-false 1-true
 
         for i in range(12):
         
-            if (self.edges[0].orientation == 1):
+            if (state.edges[0].orientation == 1):
             
                 return 0
             
         
         return 1
 
-    def is_group_2(self):
+    def is_group_2(state):
 
         for i in range(8):
-            if (self.corners[0].orientation == 1):
+            if (state.corners[0].orientation == 1):
                 return 0
             
         
     #0 8 10 2
         # edges in place
-        if(not(self.edges[0].index==0 or self.edges[0].index==8 or self.edges[0].index==10 or self.edges[0].index==2)):
+        if(not(state.edges[0].index==0 or state.edges[0].index==8 or state.edges[0].index==10 or state.edges[0].index==2)):
         
             return 0
         
 
-        if(not(self.edges[8].index==0 or self.edges[8].index==8 or self.edges[8].index==10 or self.edges[8].index==2)):
+        if(not(state.edges[8].index==0 or state.edges[8].index==8 or state.edges[8].index==10 or state.edges[8].index==2)):
         
             return 0
         
 
-        if(not(self.edges[10].index==0 or self.edges[10].index==8 or self.edges[10].index==10 or self.edges[10].index==2)):
+        if(not(state.edges[10].index==0 or state.edges[10].index==8 or state.edges[10].index==10 or state.edges[10].index==2)):
         
             return 0
         
 
-        if(not(self.edges[2].index==0 or self.edges[2].index==8 or self.edges[2].index==10 or self.edges[2].index==2)):
+        if(not(state.edges[2].index==0 or state.edges[2].index==8 or state.edges[2].index==10 or state.edges[2].index==2)):
         
             return 0
         
 
         return 1
     ##TODO-parity
-    def is_group_3(self):
+    def is_group_3(state):
         #orbits UFR DFL UBL DRB 0 2 7 5
         #UFL DRF URB DLB 3 1 4 6
 
-        if not(self.corners[0].index == 0 or self.corners[0].index == 2 or self.corners[0].index == 7 or self.corners[0].index == 5):
+        if not(state.corners[0].index == 0 or state.corners[0].index == 2 or state.corners[0].index == 7 or state.corners[0].index == 5):
         
             return 0
         
 
-        if not(self.corners[2].index == 0 or self.corners[2].index == 2 or self.corners[2].index == 7 or self.corners[2].index == 5):
+        if not(state.corners[2].index == 0 or state.corners[2].index == 2 or state.corners[2].index == 7 or state.corners[2].index == 5):
         
             return 0
         
 
-        if not(self.corners[7].index == 0 or self.corners[7].index == 2 or self.corners[7].index == 7 or self.corners[7].index == 5):
+        if not(state.corners[7].index == 0 or state.corners[7].index == 2 or state.corners[7].index == 7 or state.corners[7].index == 5):
             return 0
         
 
-        if not(self.corners[5].index == 0 or self.corners[5].index == 2 or self.corners[5].index == 7 or self.corners[5].index == 5):
+        if not(state.corners[5].index == 0 or state.corners[5].index == 2 or state.corners[5].index == 7 or state.corners[5].index == 5):
         
             return 0
         
 
         #UFL DRF URB DLB 3 1 4 6
-        if not(self.corners[3].index == 3 or self.corners[3].index == 1 or self.corners[3].index == 4 or self.corners[3].index == 6):
+        if not(state.corners[3].index == 3 or state.corners[3].index == 1 or state.corners[3].index == 4 or state.corners[3].index == 6):
         
             return 0
         
 
-        if not(self.corners[1].index == 3 or self.corners[1].index == 1 or self.corners[1].index == 4 or self.corners[1].index == 6):
+        if not(state.corners[1].index == 3 or state.corners[1].index == 1 or state.corners[1].index == 4 or state.corners[1].index == 6):
         
             return 0
         
 
-        if not(self.corners[4].index == 3 or self.corners[4].index == 1 or self.corners[4].index == 4 or self.corners[4].index == 6):
+        if not(state.corners[4].index == 3 or state.corners[4].index == 1 or state.corners[4].index == 4 or state.corners[4].index == 6):
         
             return 0
         
 
-        if not(self.corners[6].index == 3 or self.corners[6].index == 1 or self.corners[6].index == 4 or self.corners[6].index == 6):
+        if not(state.corners[6].index == 3 or state.corners[6].index == 1 or state.corners[6].index == 4 or state.corners[6].index == 6):
         
             return 0
         
@@ -799,33 +791,33 @@ class Cube():
         #corner orbits
 
         #4 5
-        if not(self.edges[4].index==4 or self.edges[4].index==5 or self.edges[5].index==5 or self.edges[5].index==4):
+        if not(state.edges[4].index==4 or state.edges[4].index==5 or state.edges[5].index==5 or state.edges[5].index==4):
         
             return 0
         
         #1 9
-        if not(self.edges[1].index==1 or self.edges[1].index==9 or self.edges[9].index==1 or self.edges[9].index==9):
+        if not(state.edges[1].index==1 or state.edges[1].index==9 or state.edges[9].index==1 or state.edges[9].index==9):
         
             return 0
         
         #7 6
-        if not(self.edges[7].index==7 or self.edges[7].index==6 or self.edges[6].index==6 or self.edges[6].index==7):
+        if not(state.edges[7].index==7 or state.edges[7].index==6 or state.edges[6].index==6 or state.edges[6].index==7):
         
             return 0
         
         #3 11
-        if not(self.edges[3].index==3 or self.edges[3].index==11 or self.edges[11].index==9 or self.edges[11].index==11):
+        if not(state.edges[3].index==3 or state.edges[3].index==11 or state.edges[11].index==9 or state.edges[11].index==11):
         
             return 0
         
 
         return 1
 
-    def is_solved(self):
+    def is_solved(state):
 
         for i in range(12):
     
-            if not (self.edges[i].index==i and self.edges[i].orientation==0):
+            if not (state.edges[i].index==i and state.edges[i].orientation==0):
         
                 return 0
         
@@ -833,7 +825,7 @@ class Cube():
 
         for i in range(8):
     
-            if(not((self.corners[i].index==i) and (self.corners[i].orientation==0))):
+            if(not((state.corners[i].index==i) and (state.corners[i].orientation==0))):
         
                 return 0
         
