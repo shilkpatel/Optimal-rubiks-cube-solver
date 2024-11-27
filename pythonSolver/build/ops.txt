@@ -1,0 +1,1589 @@
+def create_corner_database():
+    r0 :: dict
+    r1 :: str
+    r2 :: object
+    r3 :: str
+    r4 :: object[1]
+    r5 :: object_ptr
+    r6 :: object
+    r7 :: list
+    r8 :: short_int
+    r9, i :: object
+    r10 :: bit
+    r11 :: i32
+    r12 :: bit
+    r13 :: short_int
+    r14, corners, r15 :: object
+    r16 :: list
+    corner_orientations :: object
+    r17 :: list
+    corner_permutation, r18, r19, a :: object
+    r20 :: str
+    r21 :: object[2]
+    r22 :: object_ptr
+    r23, r24, r25, b :: object
+    r26 :: str
+    r27 :: object[2]
+    r28 :: object_ptr
+    r29, r30, r31, c :: object
+    r32 :: str
+    r33 :: object[2]
+    r34 :: object_ptr
+    r35, r36, r37, d :: object
+    r38 :: str
+    r39 :: object[2]
+    r40 :: object_ptr
+    r41, r42, r43, e :: object
+    r44 :: str
+    r45 :: object[2]
+    r46 :: object_ptr
+    r47, r48, r49, f :: object
+    r50 :: str
+    r51 :: object[2]
+    r52 :: object_ptr
+    r53, r54, r55, g :: object
+    r56 :: str
+    r57 :: object[2]
+    r58 :: object_ptr
+    r59, r60, r61 :: object
+    r62 :: str
+    r63 :: object[2]
+    r64 :: object_ptr
+    r65 :: object
+    r66 :: list
+    r67, r68, r69, r70, r71, r72, r73, r74, r75 :: ptr
+    r76 :: str
+    r77 :: object[2]
+    r78 :: object_ptr
+    r79 :: object
+    r80 :: str
+    r81 :: object[2]
+    r82 :: object_ptr
+    r83 :: object
+    r84 :: bit
+    r85 :: str
+    r86 :: object[2]
+    r87 :: object_ptr
+    r88 :: object
+    r89 :: bit
+    r90 :: str
+    r91 :: object[2]
+    r92 :: object_ptr
+    r93 :: object
+    r94 :: bit
+    r95 :: str
+    r96 :: object[2]
+    r97 :: object_ptr
+    r98 :: object
+    r99 :: bit
+    r100 :: str
+    r101 :: object[2]
+    r102 :: object_ptr
+    r103 :: object
+    r104 :: bit
+    r105 :: str
+    r106 :: object[2]
+    r107 :: object_ptr
+    r108 :: object
+    r109 :: bit
+    r110 :: str
+    r111 :: object[2]
+    r112 :: object_ptr
+    r113 :: object
+    r114 :: bit
+    r115 :: str
+    r116 :: object[2]
+    r117 :: object_ptr
+    r118 :: object
+    r119 :: bit
+    r120 :: list
+    r121, r122, r123 :: object
+    r124, r125, r126, r127 :: ptr
+    r128 :: short_int
+    r129 :: ptr
+    r130 :: native_int
+    r131 :: short_int
+    r132 :: bit
+    r133 :: object
+    r134 :: list
+    r135, r136, r137 :: object
+    r138, r139, r140, r141 :: ptr
+    r142 :: short_int
+    r143 :: ptr
+    r144 :: native_int
+    r145 :: short_int
+    r146 :: bit
+    r147 :: object
+    r148 :: list
+    r149, r150, r151 :: object
+    r152, r153, r154, r155 :: ptr
+    r156 :: short_int
+    r157 :: ptr
+    r158 :: native_int
+    r159 :: short_int
+    r160 :: bit
+    r161 :: object
+    r162 :: list
+    r163, r164, r165 :: object
+    r166, r167, r168, r169 :: ptr
+    r170 :: short_int
+    r171 :: ptr
+    r172 :: native_int
+    r173 :: short_int
+    r174 :: bit
+    r175 :: object
+    r176 :: list
+    r177, r178, r179 :: object
+    r180, r181, r182, r183 :: ptr
+    r184 :: short_int
+    r185 :: ptr
+    r186 :: native_int
+    r187 :: short_int
+    r188 :: bit
+    r189 :: object
+    r190 :: list
+    r191, r192, r193 :: object
+    r194, r195, r196, r197 :: ptr
+    r198 :: short_int
+    r199 :: ptr
+    r200 :: native_int
+    r201 :: short_int
+    r202 :: bit
+    r203 :: object
+    r204 :: list
+    r205, r206, r207 :: object
+    r208, r209, r210, r211 :: ptr
+    r212 :: short_int
+    r213 :: ptr
+    r214 :: native_int
+    r215 :: short_int
+    r216 :: bit
+    r217 :: object
+    r218 :: list
+    r219, r220, r221, r222, r223, r224, r225, r226 :: ptr
+    c_orientation, r227 :: object
+    r228 :: str
+    r229 :: object
+    r230 :: object[1]
+    r231 :: object_ptr
+    r232, r233, r234, r235, r236, r237, r238 :: object
+    r239 :: str
+    r240 :: object[2]
+    r241 :: object_ptr
+    r242 :: object
+    r243 :: str
+    r244 :: object[2]
+    r245 :: object_ptr
+    r246 :: object
+    r247, r248, r249, r250, r251, r252, r253 :: short_int
+    r254, r255, r256, r257, r258 :: object
+    r259 :: str
+    r260 :: object
+    r261 :: object[1]
+    r262 :: object_ptr
+    r263, r264 :: object
+    r265 :: str
+    r266 :: object
+    r267 :: object[1]
+    r268 :: object_ptr
+    r269 :: object
+    r270 :: short_int
+    r271, k :: object
+    r272 :: bit
+    r273, r274 :: object
+    r275 :: dict
+    r276 :: str
+    r277 :: object
+    r278 :: object[2]
+    r279 :: object_ptr
+    r280 :: object
+    r281 :: str
+    r282 :: object
+    r283 :: i32
+    r284 :: bit
+    r285 :: short_int
+    r286 :: object
+    r287 :: dict
+    r288 :: str
+    r289 :: object
+    r290 :: object[1]
+    r291 :: object_ptr
+    r292, r293, depth_limit :: object
+    r294 :: str
+    r295 :: object
+    r296 :: str
+    r297 :: object
+    r298 :: object[2]
+    r299 :: object_ptr
+    r300 :: object
+    r301 :: dict
+    r302 :: str
+    r303 :: object
+    r304 :: str
+    r305 :: object[3]
+    r306 :: object_ptr
+    r307 :: object
+    r308 :: i32
+    r309 :: bit
+    r310 :: bool
+    r311 :: str
+    r312 :: object
+    r313 :: str
+    r314 :: object
+    r315 :: object[2]
+    r316 :: object_ptr
+    r317, r318, r319 :: object
+    r320, r321 :: bit
+    r322, r323 :: object
+L0:
+    r0 = pattern_database.globals :: static
+    r1 = 'Cube'
+    r2 = CPyDict_GetItem(r0, r1)
+    if is_error(r2) goto L131 (error at create_corner_database:6) else goto L1
+L1:
+    r3 = 'create_solved_cube'
+    r4 = [r2]
+    r5 = load_address r4
+    r6 = PyObject_VectorcallMethod(r3, r5, 9223372036854775809, 0)
+    if is_error(r6) goto L132 (error at create_corner_database:6) else goto L2
+L2:
+    dec_ref r2
+    r7 = PyList_New(0)
+    if is_error(r7) goto L133 (error at create_corner_database:7) else goto L3
+L3:
+    r8 = 0
+    r9 = box(short_int, r8)
+    i = r9
+L4:
+    r10 = r8 < 16 :: signed
+    if r10 goto L5 else goto L134 :: bool
+L5:
+    r11 = PyList_Append(r7, i)
+    dec_ref i
+    r12 = r11 >= 0 :: signed
+    if not r12 goto L135 (error at create_corner_database:7) else goto L6 :: bool
+L6:
+    r13 = r8 + 2
+    r8 = r13
+    r14 = box(short_int, r13)
+    i = r14
+    goto L4
+L7:
+    corners = r7
+    r15 = object 0
+    inc_ref r15
+    dec_ref r15
+    r16 = PyList_New(0)
+    if is_error(r16) goto L136 (error at create_corner_database:9) else goto L8
+L8:
+    corner_orientations = r16
+    r17 = PyList_New(0)
+    if is_error(r17) goto L137 (error at create_corner_database:10) else goto L9
+L9:
+    corner_permutation = r17
+    r18 = PyObject_GetIter(corners)
+    if is_error(r18) goto L138 (error at create_corner_database:11) else goto L10
+L10:
+    r19 = PyIter_Next(r18)
+    if is_error(r19) goto L139 else goto L11
+L11:
+    a = r19
+    r20 = 'remove'
+    r21 = [corners, a]
+    r22 = load_address r21
+    r23 = PyObject_VectorcallMethod(r20, r22, 9223372036854775810, 0)
+    if is_error(r23) goto L140 (error at create_corner_database:12) else goto L141
+L12:
+    r24 = PyObject_GetIter(corners)
+    if is_error(r24) goto L140 (error at create_corner_database:13) else goto L13
+L13:
+    r25 = PyIter_Next(r24)
+    if is_error(r25) goto L142 else goto L14
+L14:
+    b = r25
+    r26 = 'remove'
+    r27 = [corners, b]
+    r28 = load_address r27
+    r29 = PyObject_VectorcallMethod(r26, r28, 9223372036854775810, 0)
+    if is_error(r29) goto L143 (error at create_corner_database:14) else goto L144
+L15:
+    r30 = PyObject_GetIter(corners)
+    if is_error(r30) goto L143 (error at create_corner_database:15) else goto L16
+L16:
+    r31 = PyIter_Next(r30)
+    if is_error(r31) goto L145 else goto L17
+L17:
+    c = r31
+    r32 = 'remove'
+    r33 = [corners, c]
+    r34 = load_address r33
+    r35 = PyObject_VectorcallMethod(r32, r34, 9223372036854775810, 0)
+    if is_error(r35) goto L146 (error at create_corner_database:16) else goto L147
+L18:
+    r36 = PyObject_GetIter(corners)
+    if is_error(r36) goto L146 (error at create_corner_database:17) else goto L19
+L19:
+    r37 = PyIter_Next(r36)
+    if is_error(r37) goto L148 else goto L20
+L20:
+    d = r37
+    r38 = 'remove'
+    r39 = [corners, d]
+    r40 = load_address r39
+    r41 = PyObject_VectorcallMethod(r38, r40, 9223372036854775810, 0)
+    if is_error(r41) goto L149 (error at create_corner_database:18) else goto L150
+L21:
+    r42 = PyObject_GetIter(corners)
+    if is_error(r42) goto L149 (error at create_corner_database:19) else goto L22
+L22:
+    r43 = PyIter_Next(r42)
+    if is_error(r43) goto L151 else goto L23
+L23:
+    e = r43
+    r44 = 'remove'
+    r45 = [corners, e]
+    r46 = load_address r45
+    r47 = PyObject_VectorcallMethod(r44, r46, 9223372036854775810, 0)
+    if is_error(r47) goto L152 (error at create_corner_database:20) else goto L153
+L24:
+    r48 = PyObject_GetIter(corners)
+    if is_error(r48) goto L152 (error at create_corner_database:21) else goto L25
+L25:
+    r49 = PyIter_Next(r48)
+    if is_error(r49) goto L154 else goto L26
+L26:
+    f = r49
+    r50 = 'remove'
+    r51 = [corners, f]
+    r52 = load_address r51
+    r53 = PyObject_VectorcallMethod(r50, r52, 9223372036854775810, 0)
+    if is_error(r53) goto L155 (error at create_corner_database:22) else goto L156
+L27:
+    r54 = PyObject_GetIter(corners)
+    if is_error(r54) goto L155 (error at create_corner_database:23) else goto L28
+L28:
+    r55 = PyIter_Next(r54)
+    if is_error(r55) goto L157 else goto L29
+L29:
+    g = r55
+    r56 = 'remove'
+    r57 = [corners, g]
+    r58 = load_address r57
+    r59 = PyObject_VectorcallMethod(r56, r58, 9223372036854775810, 0)
+    if is_error(r59) goto L158 (error at create_corner_database:24) else goto L159
+L30:
+    r60 = PyObject_GetIter(corners)
+    if is_error(r60) goto L158 (error at create_corner_database:25) else goto L31
+L31:
+    r61 = PyIter_Next(r60)
+    if is_error(r61) goto L160 else goto L32
+L32:
+    r62 = 'remove'
+    r63 = [corners, r61]
+    r64 = load_address r63
+    r65 = PyObject_VectorcallMethod(r62, r64, 9223372036854775810, 0)
+    if is_error(r65) goto L161 (error at create_corner_database:26) else goto L162
+L33:
+    r66 = PyList_New(8)
+    if is_error(r66) goto L161 (error at create_corner_database:27) else goto L34
+L34:
+    r67 = get_element_ptr r66 ob_item :: PyListObject
+    r68 = load_mem r67 :: ptr*
+    inc_ref a
+    set_mem r68, a :: builtins.object*
+    inc_ref b
+    r69 = r68 + 8
+    set_mem r69, b :: builtins.object*
+    inc_ref c
+    r70 = r68 + 16
+    set_mem r70, c :: builtins.object*
+    inc_ref d
+    r71 = r68 + 24
+    set_mem r71, d :: builtins.object*
+    inc_ref e
+    r72 = r68 + 32
+    set_mem r72, e :: builtins.object*
+    inc_ref f
+    r73 = r68 + 40
+    set_mem r73, f :: builtins.object*
+    inc_ref g
+    r74 = r68 + 48
+    set_mem r74, g :: builtins.object*
+    inc_ref r61
+    r75 = r68 + 56
+    set_mem r75, r61 :: builtins.object*
+    r76 = 'append'
+    r77 = [corner_permutation, r66]
+    r78 = load_address r77
+    r79 = PyObject_VectorcallMethod(r76, r78, 9223372036854775810, 0)
+    if is_error(r79) goto L163 (error at create_corner_database:27) else goto L164
+L35:
+    dec_ref r66
+    r80 = 'append'
+    r81 = [corners, r61]
+    r82 = load_address r81
+    r83 = PyObject_VectorcallMethod(r80, r82, 9223372036854775810, 0)
+    if is_error(r83) goto L161 (error at create_corner_database:28) else goto L165
+L36:
+    dec_ref r61
+    goto L31
+L37:
+    r84 = CPy_NoErrOccured()
+    if not r84 goto L158 (error at create_corner_database:25) else goto L38 :: bool
+L38:
+    r85 = 'append'
+    r86 = [corners, g]
+    r87 = load_address r86
+    r88 = PyObject_VectorcallMethod(r85, r87, 9223372036854775810, 0)
+    if is_error(r88) goto L158 (error at create_corner_database:29) else goto L166
+L39:
+    dec_ref g
+    goto L28
+L40:
+    r89 = CPy_NoErrOccured()
+    if not r89 goto L155 (error at create_corner_database:23) else goto L41 :: bool
+L41:
+    r90 = 'append'
+    r91 = [corners, f]
+    r92 = load_address r91
+    r93 = PyObject_VectorcallMethod(r90, r92, 9223372036854775810, 0)
+    if is_error(r93) goto L155 (error at create_corner_database:30) else goto L167
+L42:
+    dec_ref f
+    goto L25
+L43:
+    r94 = CPy_NoErrOccured()
+    if not r94 goto L152 (error at create_corner_database:21) else goto L44 :: bool
+L44:
+    r95 = 'append'
+    r96 = [corners, e]
+    r97 = load_address r96
+    r98 = PyObject_VectorcallMethod(r95, r97, 9223372036854775810, 0)
+    if is_error(r98) goto L152 (error at create_corner_database:31) else goto L168
+L45:
+    dec_ref e
+    goto L22
+L46:
+    r99 = CPy_NoErrOccured()
+    if not r99 goto L149 (error at create_corner_database:19) else goto L47 :: bool
+L47:
+    r100 = 'append'
+    r101 = [corners, d]
+    r102 = load_address r101
+    r103 = PyObject_VectorcallMethod(r100, r102, 9223372036854775810, 0)
+    if is_error(r103) goto L149 (error at create_corner_database:32) else goto L169
+L48:
+    dec_ref d
+    goto L19
+L49:
+    r104 = CPy_NoErrOccured()
+    if not r104 goto L146 (error at create_corner_database:17) else goto L50 :: bool
+L50:
+    r105 = 'append'
+    r106 = [corners, c]
+    r107 = load_address r106
+    r108 = PyObject_VectorcallMethod(r105, r107, 9223372036854775810, 0)
+    if is_error(r108) goto L146 (error at create_corner_database:33) else goto L170
+L51:
+    dec_ref c
+    goto L16
+L52:
+    r109 = CPy_NoErrOccured()
+    if not r109 goto L143 (error at create_corner_database:15) else goto L53 :: bool
+L53:
+    r110 = 'append'
+    r111 = [corners, b]
+    r112 = load_address r111
+    r113 = PyObject_VectorcallMethod(r110, r112, 9223372036854775810, 0)
+    if is_error(r113) goto L143 (error at create_corner_database:34) else goto L171
+L54:
+    dec_ref b
+    goto L13
+L55:
+    r114 = CPy_NoErrOccured()
+    if not r114 goto L140 (error at create_corner_database:13) else goto L56 :: bool
+L56:
+    r115 = 'append'
+    r116 = [corners, a]
+    r117 = load_address r116
+    r118 = PyObject_VectorcallMethod(r115, r117, 9223372036854775810, 0)
+    if is_error(r118) goto L140 (error at create_corner_database:35) else goto L172
+L57:
+    dec_ref a
+    goto L10
+L58:
+    r119 = CPy_NoErrOccured()
+    if not r119 goto L173 (error at create_corner_database:11) else goto L59 :: bool
+L59:
+    r120 = PyList_New(3)
+    if is_error(r120) goto L173 (error at create_corner_database:37) else goto L60
+L60:
+    r121 = object 0
+    r122 = object 1
+    r123 = object 2
+    r124 = get_element_ptr r120 ob_item :: PyListObject
+    r125 = load_mem r124 :: ptr*
+    inc_ref r121
+    set_mem r125, r121 :: builtins.object*
+    inc_ref r122
+    r126 = r125 + 8
+    set_mem r126, r122 :: builtins.object*
+    inc_ref r123
+    r127 = r125 + 16
+    set_mem r127, r123 :: builtins.object*
+    r128 = 0
+L61:
+    r129 = get_element_ptr r120 ob_size :: PyVarObject
+    r130 = load_mem r129 :: native_int*
+    r131 = r130 << 1
+    r132 = r128 < r131 :: signed
+    if r132 goto L62 else goto L174 :: bool
+L62:
+    r133 = CPyList_GetItemUnsafe(r120, r128)
+    a = r133
+    r134 = PyList_New(3)
+    if is_error(r134) goto L175 (error at create_corner_database:38) else goto L63
+L63:
+    r135 = object 0
+    r136 = object 1
+    r137 = object 2
+    r138 = get_element_ptr r134 ob_item :: PyListObject
+    r139 = load_mem r138 :: ptr*
+    inc_ref r135
+    set_mem r139, r135 :: builtins.object*
+    inc_ref r136
+    r140 = r139 + 8
+    set_mem r140, r136 :: builtins.object*
+    inc_ref r137
+    r141 = r139 + 16
+    set_mem r141, r137 :: builtins.object*
+    r142 = 0
+L64:
+    r143 = get_element_ptr r134 ob_size :: PyVarObject
+    r144 = load_mem r143 :: native_int*
+    r145 = r144 << 1
+    r146 = r142 < r145 :: signed
+    if r146 goto L65 else goto L176 :: bool
+L65:
+    r147 = CPyList_GetItemUnsafe(r134, r142)
+    b = r147
+    r148 = PyList_New(3)
+    if is_error(r148) goto L177 (error at create_corner_database:39) else goto L66
+L66:
+    r149 = object 0
+    r150 = object 1
+    r151 = object 2
+    r152 = get_element_ptr r148 ob_item :: PyListObject
+    r153 = load_mem r152 :: ptr*
+    inc_ref r149
+    set_mem r153, r149 :: builtins.object*
+    inc_ref r150
+    r154 = r153 + 8
+    set_mem r154, r150 :: builtins.object*
+    inc_ref r151
+    r155 = r153 + 16
+    set_mem r155, r151 :: builtins.object*
+    r156 = 0
+L67:
+    r157 = get_element_ptr r148 ob_size :: PyVarObject
+    r158 = load_mem r157 :: native_int*
+    r159 = r158 << 1
+    r160 = r156 < r159 :: signed
+    if r160 goto L68 else goto L178 :: bool
+L68:
+    r161 = CPyList_GetItemUnsafe(r148, r156)
+    c = r161
+    r162 = PyList_New(3)
+    if is_error(r162) goto L179 (error at create_corner_database:40) else goto L69
+L69:
+    r163 = object 0
+    r164 = object 1
+    r165 = object 2
+    r166 = get_element_ptr r162 ob_item :: PyListObject
+    r167 = load_mem r166 :: ptr*
+    inc_ref r163
+    set_mem r167, r163 :: builtins.object*
+    inc_ref r164
+    r168 = r167 + 8
+    set_mem r168, r164 :: builtins.object*
+    inc_ref r165
+    r169 = r167 + 16
+    set_mem r169, r165 :: builtins.object*
+    r170 = 0
+L70:
+    r171 = get_element_ptr r162 ob_size :: PyVarObject
+    r172 = load_mem r171 :: native_int*
+    r173 = r172 << 1
+    r174 = r170 < r173 :: signed
+    if r174 goto L71 else goto L180 :: bool
+L71:
+    r175 = CPyList_GetItemUnsafe(r162, r170)
+    d = r175
+    r176 = PyList_New(3)
+    if is_error(r176) goto L181 (error at create_corner_database:41) else goto L72
+L72:
+    r177 = object 0
+    r178 = object 1
+    r179 = object 2
+    r180 = get_element_ptr r176 ob_item :: PyListObject
+    r181 = load_mem r180 :: ptr*
+    inc_ref r177
+    set_mem r181, r177 :: builtins.object*
+    inc_ref r178
+    r182 = r181 + 8
+    set_mem r182, r178 :: builtins.object*
+    inc_ref r179
+    r183 = r181 + 16
+    set_mem r183, r179 :: builtins.object*
+    r184 = 0
+L73:
+    r185 = get_element_ptr r176 ob_size :: PyVarObject
+    r186 = load_mem r185 :: native_int*
+    r187 = r186 << 1
+    r188 = r184 < r187 :: signed
+    if r188 goto L74 else goto L182 :: bool
+L74:
+    r189 = CPyList_GetItemUnsafe(r176, r184)
+    e = r189
+    r190 = PyList_New(3)
+    if is_error(r190) goto L183 (error at create_corner_database:42) else goto L75
+L75:
+    r191 = object 0
+    r192 = object 1
+    r193 = object 2
+    r194 = get_element_ptr r190 ob_item :: PyListObject
+    r195 = load_mem r194 :: ptr*
+    inc_ref r191
+    set_mem r195, r191 :: builtins.object*
+    inc_ref r192
+    r196 = r195 + 8
+    set_mem r196, r192 :: builtins.object*
+    inc_ref r193
+    r197 = r195 + 16
+    set_mem r197, r193 :: builtins.object*
+    r198 = 0
+L76:
+    r199 = get_element_ptr r190 ob_size :: PyVarObject
+    r200 = load_mem r199 :: native_int*
+    r201 = r200 << 1
+    r202 = r198 < r201 :: signed
+    if r202 goto L77 else goto L184 :: bool
+L77:
+    r203 = CPyList_GetItemUnsafe(r190, r198)
+    f = r203
+    r204 = PyList_New(3)
+    if is_error(r204) goto L185 (error at create_corner_database:43) else goto L78
+L78:
+    r205 = object 0
+    r206 = object 1
+    r207 = object 2
+    r208 = get_element_ptr r204 ob_item :: PyListObject
+    r209 = load_mem r208 :: ptr*
+    inc_ref r205
+    set_mem r209, r205 :: builtins.object*
+    inc_ref r206
+    r210 = r209 + 8
+    set_mem r210, r206 :: builtins.object*
+    inc_ref r207
+    r211 = r209 + 16
+    set_mem r211, r207 :: builtins.object*
+    r212 = 0
+L79:
+    r213 = get_element_ptr r204 ob_size :: PyVarObject
+    r214 = load_mem r213 :: native_int*
+    r215 = r214 << 1
+    r216 = r212 < r215 :: signed
+    if r216 goto L80 else goto L186 :: bool
+L80:
+    r217 = CPyList_GetItemUnsafe(r204, r212)
+    g = r217
+    r218 = PyList_New(7)
+    if is_error(r218) goto L187 (error at create_corner_database:44) else goto L81
+L81:
+    r219 = get_element_ptr r218 ob_item :: PyListObject
+    r220 = load_mem r219 :: ptr*
+    inc_ref a
+    set_mem r220, a :: builtins.object*
+    inc_ref b
+    r221 = r220 + 8
+    set_mem r221, b :: builtins.object*
+    inc_ref c
+    r222 = r220 + 16
+    set_mem r222, c :: builtins.object*
+    inc_ref d
+    r223 = r220 + 24
+    set_mem r223, d :: builtins.object*
+    inc_ref e
+    r224 = r220 + 32
+    set_mem r224, e :: builtins.object*
+    inc_ref f
+    r225 = r220 + 40
+    set_mem r225, f :: builtins.object*
+    r226 = r220 + 48
+    set_mem r226, g :: builtins.object*
+    c_orientation = r218
+    r227 = builtins :: module
+    r228 = 'sum'
+    r229 = CPyObject_GetAttr(r227, r228)
+    if is_error(r229) goto L188 (error at create_corner_database:45) else goto L82
+L82:
+    r230 = [c_orientation]
+    r231 = load_address r230
+    r232 = _PyObject_Vectorcall(r229, r231, 1, 0)
+    dec_ref r229
+    if is_error(r232) goto L188 (error at create_corner_database:45) else goto L83
+L83:
+    r233 = object 3
+    r234 = PyNumber_Remainder(r232, r233)
+    dec_ref r232
+    if is_error(r234) goto L188 (error at create_corner_database:45) else goto L84
+L84:
+    r235 = object 3
+    r236 = PyNumber_Subtract(r235, r234)
+    dec_ref r234
+    if is_error(r236) goto L188 (error at create_corner_database:45) else goto L85
+L85:
+    r237 = object 3
+    r238 = PyNumber_Remainder(r236, r237)
+    dec_ref r236
+    if is_error(r238) goto L188 (error at create_corner_database:45) else goto L86
+L86:
+    r239 = 'append'
+    r240 = [c_orientation, r238]
+    r241 = load_address r240
+    r242 = PyObject_VectorcallMethod(r239, r241, 9223372036854775810, 0)
+    if is_error(r242) goto L189 (error at create_corner_database:46) else goto L190
+L87:
+    dec_ref r238
+    r243 = 'append'
+    r244 = [corner_orientations, c_orientation]
+    r245 = load_address r244
+    r246 = PyObject_VectorcallMethod(r243, r245, 9223372036854775810, 0)
+    if is_error(r246) goto L188 (error at create_corner_database:47) else goto L191
+L88:
+    dec_ref c_orientation
+L89:
+    r247 = r212 + 2
+    r212 = r247
+    goto L79
+L90:
+    r248 = r198 + 2
+    r198 = r248
+    goto L76
+L91:
+    r249 = r184 + 2
+    r184 = r249
+    goto L73
+L92:
+    r250 = r170 + 2
+    r170 = r250
+    goto L70
+L93:
+    r251 = r156 + 2
+    r156 = r251
+    goto L67
+L94:
+    r252 = r142 + 2
+    r142 = r252
+    goto L64
+L95:
+    r253 = r128 + 2
+    r128 = r253
+    goto L61
+L96:
+    r254 = PyObject_GetIter(corner_permutation)
+    dec_ref corner_permutation
+    if is_error(r254) goto L192 (error at create_corner_database:50) else goto L97
+L97:
+    r255 = PyIter_Next(r254)
+    if is_error(r255) goto L193 else goto L98
+L98:
+    r256 = PyObject_GetIter(corner_orientations)
+    if is_error(r256) goto L194 (error at create_corner_database:51) else goto L99
+L99:
+    r257 = PyIter_Next(r256)
+    if is_error(r257) goto L195 else goto L100
+L100:
+    r258 = builtins :: module
+    r259 = 'print'
+    r260 = CPyObject_GetAttr(r258, r259)
+    if is_error(r260) goto L196 (error at create_corner_database:52) else goto L101
+L101:
+    r261 = [r255]
+    r262 = load_address r261
+    r263 = _PyObject_Vectorcall(r260, r262, 1, 0)
+    dec_ref r260
+    if is_error(r263) goto L196 (error at create_corner_database:52) else goto L197
+L102:
+    r264 = builtins :: module
+    r265 = 'print'
+    r266 = CPyObject_GetAttr(r264, r265)
+    if is_error(r266) goto L196 (error at create_corner_database:53) else goto L103
+L103:
+    r267 = [r257]
+    r268 = load_address r267
+    r269 = _PyObject_Vectorcall(r266, r268, 1, 0)
+    dec_ref r266
+    if is_error(r269) goto L196 (error at create_corner_database:53) else goto L198
+L104:
+    r270 = 0
+    r271 = box(short_int, r270)
+    k = r271
+L105:
+    r272 = r270 < 16 :: signed
+    if r272 goto L106 else goto L199 :: bool
+L106:
+    r273 = PyObject_GetItem(r255, k)
+    if is_error(r273) goto L200 (error at create_corner_database:56) else goto L107
+L107:
+    r274 = PyObject_GetItem(r257, k)
+    if is_error(r274) goto L201 (error at create_corner_database:56) else goto L108
+L108:
+    r275 = pattern_database.globals :: static
+    r276 = 'cubie'
+    r277 = CPyDict_GetItem(r275, r276)
+    if is_error(r277) goto L202 (error at create_corner_database:56) else goto L109
+L109:
+    r278 = [r273, r274]
+    r279 = load_address r278
+    r280 = _PyObject_Vectorcall(r277, r279, 2, 0)
+    dec_ref r277
+    if is_error(r280) goto L202 (error at create_corner_database:56) else goto L110
+L110:
+    dec_ref r273
+    dec_ref r274
+    r281 = 'corners'
+    r282 = CPyObject_GetAttr(r6, r281)
+    if is_error(r282) goto L203 (error at create_corner_database:56) else goto L111
+L111:
+    r283 = PyObject_SetItem(r282, k, r280)
+    dec_ref r282
+    dec_ref k
+    dec_ref r280
+    r284 = r283 >= 0 :: signed
+    if not r284 goto L196 (error at create_corner_database:56) else goto L112 :: bool
+L112:
+    r285 = r270 + 2
+    r270 = r285
+    r286 = box(short_int, r285)
+    k = r286
+    goto L105
+L113:
+    r287 = pattern_database.globals :: static
+    r288 = 'CubeTree'
+    r289 = CPyDict_GetItem(r287, r288)
+    if is_error(r289) goto L204 (error at create_corner_database:58) else goto L114
+L114:
+    r290 = [r6]
+    r291 = load_address r290
+    r292 = _PyObject_Vectorcall(r289, r291, 1, 0)
+    dec_ref r289
+    if is_error(r292) goto L204 (error at create_corner_database:58) else goto L115
+L115:
+    r293 = object 0
+    inc_ref r293
+    depth_limit = r293
+L116:
+    if 1 goto L117 else goto L205 :: bool
+L117:
+    r294 = 'Current Depth'
+    r295 = builtins :: module
+    r296 = 'print'
+    r297 = CPyObject_GetAttr(r295, r296)
+    if is_error(r297) goto L206 (error at create_corner_database:61) else goto L118
+L118:
+    r298 = [r294, depth_limit]
+    r299 = load_address r298
+    r300 = _PyObject_Vectorcall(r297, r299, 2, 0)
+    dec_ref r297
+    if is_error(r300) goto L206 (error at create_corner_database:61) else goto L207
+L119:
+    r301 = pattern_database.globals :: static
+    r302 = 'CubeTree'
+    r303 = CPyDict_GetItem(r301, r302)
+    if is_error(r303) goto L206 (error at create_corner_database:62) else goto L120
+L120:
+    r304 = 'corner_dfs'
+    r305 = [r303, r292, depth_limit]
+    r306 = load_address r305
+    r307 = PyObject_VectorcallMethod(r304, r306, 9223372036854775811, 0)
+    if is_error(r307) goto L208 (error at create_corner_database:62) else goto L121
+L121:
+    dec_ref r303
+    r308 = PyObject_IsTrue(r307)
+    dec_ref r307
+    r309 = r308 >= 0 :: signed
+    if not r309 goto L206 (error at create_corner_database:62) else goto L122 :: bool
+L122:
+    r310 = truncate r308: i32 to builtins.bool
+    if r310 goto L209 else goto L126 :: bool
+L123:
+    r311 = 'Depth for given position'
+    r312 = builtins :: module
+    r313 = 'print'
+    r314 = CPyObject_GetAttr(r312, r313)
+    if is_error(r314) goto L210 (error at create_corner_database:65) else goto L124
+L124:
+    r315 = [r311, depth_limit]
+    r316 = load_address r315
+    r317 = _PyObject_Vectorcall(r314, r316, 2, 0)
+    dec_ref r314
+    if is_error(r317) goto L210 (error at create_corner_database:65) else goto L211
+L125:
+    dec_ref depth_limit
+    goto L99
+L126:
+    r318 = object 1
+    r319 = PyNumber_InPlaceAdd(depth_limit, r318)
+    dec_ref depth_limit
+    if is_error(r319) goto L212 (error at create_corner_database:68) else goto L127
+L127:
+    depth_limit = r319
+    goto L116
+L128:
+    r320 = CPy_NoErrOccured()
+    if not r320 goto L213 (error at create_corner_database:51) else goto L97 :: bool
+L129:
+    r321 = CPy_NoErrOccured()
+    if not r321 goto L131 (error at create_corner_database:50) else goto L130 :: bool
+L130:
+    r322 = box(None, 1)
+    inc_ref r322
+    return r322
+L131:
+    r323 = <error> :: object
+    return r323
+L132:
+    dec_ref r2
+    goto L131
+L133:
+    dec_ref r6
+    goto L131
+L134:
+    dec_ref i
+    goto L7
+L135:
+    dec_ref r6
+    dec_ref r7
+    goto L131
+L136:
+    dec_ref r6
+    dec_ref corners
+    goto L131
+L137:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    goto L131
+L138:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    goto L131
+L139:
+    dec_ref corners
+    dec_ref r18
+    goto L58
+L140:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    goto L131
+L141:
+    dec_ref r23
+    goto L12
+L142:
+    dec_ref r24
+    goto L55
+L143:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    goto L131
+L144:
+    dec_ref r29
+    goto L15
+L145:
+    dec_ref r30
+    goto L52
+L146:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    goto L131
+L147:
+    dec_ref r35
+    goto L18
+L148:
+    dec_ref r36
+    goto L49
+L149:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    goto L131
+L150:
+    dec_ref r41
+    goto L21
+L151:
+    dec_ref r42
+    goto L46
+L152:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    dec_ref r42
+    dec_ref e
+    goto L131
+L153:
+    dec_ref r47
+    goto L24
+L154:
+    dec_ref r48
+    goto L43
+L155:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    dec_ref r42
+    dec_ref e
+    dec_ref r48
+    dec_ref f
+    goto L131
+L156:
+    dec_ref r53
+    goto L27
+L157:
+    dec_ref r54
+    goto L40
+L158:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    dec_ref r42
+    dec_ref e
+    dec_ref r48
+    dec_ref f
+    dec_ref r54
+    dec_ref g
+    goto L131
+L159:
+    dec_ref r59
+    goto L30
+L160:
+    dec_ref r60
+    goto L37
+L161:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    dec_ref r42
+    dec_ref e
+    dec_ref r48
+    dec_ref f
+    dec_ref r54
+    dec_ref g
+    dec_ref r60
+    dec_ref r61
+    goto L131
+L162:
+    dec_ref r65
+    goto L33
+L163:
+    dec_ref r6
+    dec_ref corners
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref r18
+    dec_ref a
+    dec_ref r24
+    dec_ref b
+    dec_ref r30
+    dec_ref c
+    dec_ref r36
+    dec_ref d
+    dec_ref r42
+    dec_ref e
+    dec_ref r48
+    dec_ref f
+    dec_ref r54
+    dec_ref g
+    dec_ref r60
+    dec_ref r61
+    dec_ref r66
+    goto L131
+L164:
+    dec_ref r79
+    goto L35
+L165:
+    dec_ref r83
+    goto L36
+L166:
+    dec_ref r88
+    goto L39
+L167:
+    dec_ref r93
+    goto L42
+L168:
+    dec_ref r98
+    goto L45
+L169:
+    dec_ref r103
+    goto L48
+L170:
+    dec_ref r108
+    goto L51
+L171:
+    dec_ref r113
+    goto L54
+L172:
+    dec_ref r118
+    goto L57
+L173:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    goto L131
+L174:
+    dec_ref r120
+    goto L96
+L175:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref r120
+    goto L131
+L176:
+    dec_ref a
+    dec_ref r134
+    goto L95
+L177:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref r120
+    dec_ref r134
+    goto L131
+L178:
+    dec_ref b
+    dec_ref r148
+    goto L94
+L179:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    goto L131
+L180:
+    dec_ref c
+    dec_ref r162
+    goto L93
+L181:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    goto L131
+L182:
+    dec_ref d
+    dec_ref r176
+    goto L92
+L183:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref e
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    dec_ref r176
+    goto L131
+L184:
+    dec_ref e
+    dec_ref r190
+    goto L91
+L185:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref e
+    dec_ref f
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    dec_ref r176
+    dec_ref r190
+    goto L131
+L186:
+    dec_ref f
+    dec_ref r204
+    goto L90
+L187:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref e
+    dec_ref f
+    dec_ref g
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    dec_ref r176
+    dec_ref r190
+    dec_ref r204
+    goto L131
+L188:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref e
+    dec_ref f
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    dec_ref r176
+    dec_ref r190
+    dec_ref r204
+    dec_ref c_orientation
+    goto L131
+L189:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref corner_permutation
+    dec_ref a
+    dec_ref b
+    dec_ref c
+    dec_ref d
+    dec_ref e
+    dec_ref f
+    dec_ref r120
+    dec_ref r134
+    dec_ref r148
+    dec_ref r162
+    dec_ref r176
+    dec_ref r190
+    dec_ref r204
+    dec_ref c_orientation
+    dec_ref r238
+    goto L131
+L190:
+    dec_ref r242
+    goto L87
+L191:
+    dec_ref r246
+    goto L88
+L192:
+    dec_ref r6
+    dec_ref corner_orientations
+    goto L131
+L193:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    goto L129
+L194:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    goto L131
+L195:
+    dec_ref r255
+    dec_ref r256
+    goto L128
+L196:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r257
+    goto L131
+L197:
+    dec_ref r263
+    goto L102
+L198:
+    dec_ref r269
+    goto L104
+L199:
+    dec_ref r257
+    dec_ref k
+    goto L113
+L200:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r257
+    dec_ref k
+    goto L131
+L201:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r257
+    dec_ref k
+    dec_ref r273
+    goto L131
+L202:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r257
+    dec_ref k
+    dec_ref r273
+    dec_ref r274
+    goto L131
+L203:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r257
+    dec_ref k
+    dec_ref r280
+    goto L131
+L204:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    goto L131
+L205:
+    dec_ref r292
+    dec_ref depth_limit
+    goto L99
+L206:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r292
+    dec_ref depth_limit
+    goto L131
+L207:
+    dec_ref r300
+    goto L119
+L208:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r292
+    dec_ref depth_limit
+    dec_ref r303
+    goto L131
+L209:
+    dec_ref r292
+    goto L123
+L210:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref depth_limit
+    goto L131
+L211:
+    dec_ref r317
+    goto L125
+L212:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    dec_ref r255
+    dec_ref r256
+    dec_ref r292
+    goto L131
+L213:
+    dec_ref r6
+    dec_ref corner_orientations
+    dec_ref r254
+    goto L131
+
+def __top_level__():
+    r0, r1 :: object
+    r2 :: bit
+    r3 :: str
+    r4, r5, r6 :: object
+    r7 :: bit
+    r8 :: str
+    r9, r10, r11 :: object
+    r12 :: bit
+    r13 :: str
+    r14 :: object
+    r15 :: object_ptr
+    r16 :: object_ptr[1]
+    r17 :: c_ptr
+    r18 :: native_int[1]
+    r19 :: c_ptr
+    r20 :: object
+    r21 :: dict
+    r22, r23 :: str
+    r24 :: bit
+    r25 :: object
+    r26 :: None
+L0:
+    r0 = builtins :: module
+    r1 = load_address _Py_NoneStruct
+    r2 = r0 != r1
+    if r2 goto L3 else goto L1 :: bool
+L1:
+    r3 = 'builtins'
+    r4 = PyImport_Import(r3)
+    if is_error(r4) goto L12 (error at <module>:-1) else goto L2
+L2:
+    builtins = r4 :: module
+    dec_ref r4
+L3:
+    r5 = Cube :: module
+    r6 = load_address _Py_NoneStruct
+    r7 = r5 != r6
+    if r7 goto L6 else goto L4 :: bool
+L4:
+    r8 = 'Cube'
+    r9 = PyImport_Import(r8)
+    if is_error(r9) goto L12 (error at <module>:1) else goto L5
+L5:
+    Cube = r9 :: module
+    dec_ref r9
+L6:
+    r10 = CubeTree :: module
+    r11 = load_address _Py_NoneStruct
+    r12 = r10 != r11
+    if r12 goto L9 else goto L7 :: bool
+L7:
+    r13 = 'CubeTree'
+    r14 = PyImport_Import(r13)
+    if is_error(r14) goto L12 (error at <module>:2) else goto L8
+L8:
+    CubeTree = r14 :: module
+    dec_ref r14
+L9:
+    r15 = load_address random :: module
+    r16 = [r15]
+    r17 = load_address r16
+    r18 = [3]
+    r19 = load_address r18
+    r20 = (('random', 'random', 'random'),)
+    r21 = pattern_database.globals :: static
+    r22 = 'pattern_database.py'
+    r23 = '<module>'
+    r24 = CPyImport_ImportMany(r20, r17, r21, r22, r23, r19)
+    if not r24 goto L12 else goto L10 :: bool
+L10:
+    r25 = create_corner_database()
+    if is_error(r25) goto L12 (error at <module>:71) else goto L13
+L11:
+    return 1
+L12:
+    r26 = <error> :: None
+    return r26
+L13:
+    dec_ref r25
+    goto L11
